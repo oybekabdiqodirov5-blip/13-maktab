@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>13-maktab.com</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    /* Asosiy body va font */
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to right, #89f7fe, #66a6ff);
+        color: #333;
+        overflow-x: hidden;
+    }
+
+    /* Kirish animatsiyasi */
+    #intro {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: #66a6ff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: white;
+        font-size: 2em;
+        animation: fadeOut 3s forwards 3s;
+        z-index: 9999;
+    }
+    @keyframes fadeOut {
+        to {opacity: 0; visibility: hidden;}
+    }
+
+    header {
+        background: #1e3c72;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 2em;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin: 20px 0;
+    }
+    nav a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        padding: 10px 15px;
+        background: #ff6a00;
+        border-radius: 10px;
+        transition: 0.3s;
+    }
+    nav a:hover {
+        background: #ffb347;
+        color: #000;
+    }
+
+    section {
+        max-width: 1000px;
+        margin: 20px auto;
+        padding: 20px;
+        background: rgba(255,255,255,0.9);
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+        color: #ff6a00;
+        text-align: center;
+    }
+
+    .books, .videos, .files {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .card {
+        background: #fef9f9;
+        padding: 15px;
+        border-radius: 10px;
+        width: 200px;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    footer {
+        background: #1e3c72;
+        color: white;
+        text-align: center;
+        padding: 15px;
+    }
+
+    /* Rang-barang yozuvlar */
+    .rainbow-text {
+        background: linear-gradient(45deg, #ff6a00, #ffb347, #f7ff00, #00ff99, #00cfff, #cc00ff);
+        -webkit-background-clip: text;
+        color: transparent;
+        font-weight: bold;
+        font-size: 1.5em;
+    }
+</style>
+</head>
+<body>
+
+<div id="intro">
+    <div class="rainbow-text">13-maktab.com</div>
+    <div style="margin-top:20px;">🌟 Biz bilan o‘rganish ajoyib! 🌟</div>
+</div>
+
+<header>
+    13-sonli Umumiy O'rta Ta'lim Maktabi
+</header>
+
+<nav>
+    <a href="#books">📚 Kitoblar</a>
+    <a href="#videos">🎥 Videolar</a>
+    <a href="#files">📂 Fayllar</a>
+    <a href="#admin">🛠 Admin</a>
+</nav>
+
+<section id="books">
+    <h2>📚 Kitoblar bo'limi</h2>
+    <div class="books">
+        <div class="card">Matematika 📘</div>
+        <div class="card">Ingliz Tili 📗</div>
+        <div class="card">Tarix 📙</div>
+        <div class="card">Biologiya 📕</div>
+    </div>
+</section>
+
+<section id="videos">
+    <h2>🎥 Videolar</h2>
+    <div class="videos">
+        <div class="card">
+            <video width="180" controls>
+                <source src="video1.mp4" type="video/mp4">
+                Sizning brauzeringiz video formatini qo'llab-quvvatlamaydi.
+            </video>
+            Dars 1
+        </div>
+        <div class="card">
+            <video width="180" controls>
+                <source src="video2.mp4" type="video/mp4">
+            </video>
+            Dars 2
+        </div>
+    </div>
+</section>
+
+<section id="files">
+    <h2>📂 Fayllar</h2>
+    <div class="files">
+        <div class="card">
+            <a href="file1.pdf" download>📄 Matematikadan fayl</a>
+        </div>
+        <div class="card">
+            <a href="file2.pdf" download>📄 Ingliz tilidan fayl</a>
+        </div>
+    </div>
+</section>
+
+<section id="admin">
+    <h2>🛠 Admin menyusi</h2>
+    <p>Login: <input type="text" placeholder="Login" id="adminLogin"></p>
+    <p>Parol: <input type="password" placeholder="Parol" id="adminPass"></p>
+    <button onclick="adminLogin()">Kirish</button>
+    <p id="adminStatus" style="color:red; font-weight:bold;"></p>
+</section>
+
+<footer>
+    © 2026 13-maktab.com | Barcha huquqlar himoyalangan 🌟
+</footer>
+
+<script>
+    // Admin login oddiy JS tekshiruv
+    function adminLogin() {
+        const login = document.getElementById("adminLogin").value;
+        const pass = document.getElementById("adminPass").value;
+        if(login === "admin" && pass === "1234") {
+            document.getElementById("adminStatus").innerHTML = "✅ Muvaffaqiyatli kirdingiz!";
+        } else {
+            document.getElementById("adminStatus").innerHTML = "❌ Login yoki parol xato!";
+        }
+    }
+</script>
+
+</body>
+</html>
